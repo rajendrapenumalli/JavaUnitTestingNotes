@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+
+repositories {
+    mavenCentral()
+}
+ 
+
+dependencies {
+ 		testCompile 'junit:junit:4.12'
+   
+}
+
+jacocoTestReport {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports (after running the tests) "
+     getAdditionalSourceDirs().from(sourceSets.main.allJava.srcDirs)
+}
+
+

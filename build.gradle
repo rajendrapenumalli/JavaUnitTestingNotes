@@ -1,0 +1,46 @@
+plugins {
+    id "java"
+    id "jacoco"
+    id "com.adarshr.test-logger" version "1.7.0"
+}
+ 
+repositories {
+    mavenCentral()
+}
+ 
+ testlogger {
+    theme 'standard'
+    showExceptions true
+    showStackTraces true
+    showFullStackTraces false
+    showCauses true
+    slowThreshold 2000
+    showSummary true
+    showSimpleNames false
+    showPassed true
+    showSkipped true
+    showFailed true
+    showStandardStreams false
+    showPassedStandardStreams true
+    showSkippedStandardStreams true
+    showFailedStandardStreams true
+}
+ 
+dependencies {
+    testImplementation(
+            'junit:junit:4.12',
+            'org.junit.jupiter:junit-jupiter-api:5.4.2'
+    )
+    testRuntime(
+            'org.junit.jupiter:junit-jupiter-engine:5.4.2',
+            'org.junit.vintage:junit-vintage-engine:5.4.2'
+    )
+}
+
+jacocoTestReport {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports (after running the tests) "
+    additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+}
+
+
