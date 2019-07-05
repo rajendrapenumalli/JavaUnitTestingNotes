@@ -1,24 +1,41 @@
 package com.livevox;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-public class CalculatorTest extends TestCase {
-	boolean isTestExpectedToPass=true;
+import org.junit.Before;
 
+public class CalculatorTest  {
+	Calculator cal=null;
+    
+	@Before
+	public void setup() {
+		cal=new Calculator();
+	}
+	
+	
+	@Test
 	public void testAdd() {
-		assertTrue(isTestExpectedToPass);
+		int sum=cal.add(1,2);
+		assertTrue(sum==3);
 	}
 
-//	public void testMulti() {
-//		assertTrue(isTestExpectedToPass);
-//	}
-//
-//	public void testSub() {
-//		assertTrue(isTestExpectedToPass);
-//	}
-//
-//	public void testDiv() {
-//		assertTrue(isTestExpectedToPass);
-//	}
+	@Test
+	public void testMulti() {
+		int prod=cal.multi(1,2);
+		assertTrue(prod==2);
+	}
+
+	@Test
+	public void testSub() {
+		int diff=cal.sub(5,2);
+
+		assertTrue(diff==3);
+	}
+	@Test
+	public void testDiv() {
+		int res=cal.div(5,2);
+		assertTrue(res==2);
+	}
 
 }
